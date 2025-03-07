@@ -34,8 +34,8 @@ jobs:
 
       - name: Update GitOps repository
         run: |
-          # Clone the GitOps repository
-          git clone https://github.com/rslim087a/grade-api-gitops.git gitops
+          # Clone the GitOps repository with authentication
+          git clone https://x-access-token:${{ secrets.GITOPS_PAT }}@github.com/rslim087a/grade-api-gitops.git gitops
           cd gitops
           
           # Update the image tag in the deployment yaml

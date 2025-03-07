@@ -1,4 +1,4 @@
-# Kubernetes CICD Tutorial (Actions, JFrog, Argocd)
+# Kubernetes CICD Tutorial
 
 This repo contains all the code needed to follow along with our **[YouTube Tutorial](https://)** or **[Written Article](https://)**.
 

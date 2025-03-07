@@ -10,25 +10,6 @@ To follow along with this tutorial, you'll need:
 - Helm installed: ([https://kubernetestraining.io/blog/installing-helm-on-mac-and-windows](https://kubernetestraining.io/blog/installing-helm-on-mac-and-windows))
 - A GitHub account: ([https://github.com/](https://github.com/))
 
-## Install JFrog Artifactory in your cluster:
-
-```bash
-helm repo add jfrog https://charts.jfrog.io
-helm repo update
-
-kubectl create namespace jfrog
-
-helm install artifactory jfrog/artifactory \
-  --namespace jfrog \
-  --set artifactory.postgresql.postgresqlPassword=password \
-  --set artifactory.adminPassword=password
-```
-## Access JFrog
-
-```
-kubectl port-forward -n jfrog svc/artifactory-nginx 8082:80
-```
-
 ## Install ArgoCD
 
 ```bash
@@ -41,7 +22,7 @@ helm install argocd argo/argo-cd --namespace argocd
 ## Access ArgoCD UI
 
 ```bash
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl port-forward svc/argocd-server -n argocd 8080:80
 ```
 
 ## Retrieve Credentials

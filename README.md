@@ -20,9 +20,11 @@ kubectl create namespace jfrog
 
 helm install artifactory jfrog/artifactory \
   --namespace jfrog \
-  --set artifactory.nginx.service.type=NodePort \
   --set artifactory.postgresql.postgresqlPassword=password \
   --set artifactory.adminPassword=password
+
+## Optional flag for local setup:           --set artifactory.nginx.service.type=NodePort
+## Optional flag for production setup:      --set artifactory.nginx.service.type=LoadBalancer
 
 kubectl port-forward -n jfrog svc/artifactory-nginx 8082:80
 ```

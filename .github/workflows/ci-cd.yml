@@ -33,13 +33,20 @@ jobs:
             ghcr.io/${{ github.repository }}:${{ github.sha }}
 
       - name: Update GitOps repository
+        shell: bash
         run: |
           # Clone the GitOps repository with authentication
           git clone https://x-access-token:${{ secrets.GITOPS_PAT }}@github.com/rslim087a/grade-api-gitops.git gitops
           cd gitops
           
-          # Update the image tag in the deployment yaml
-          sed -i "s|image: ghcr.io/${{ github.repository }}:.*|image: ghcr.io/${{ github.repository }}:${{ github.sha }}|g" deployment.yaml
+          # Detect macOS and use appropriate sed command
+          if [[ "$OSTYPE" == "darwin"* ]]; then
+            # macOS version
+            sed -i '' "s|image: ghcr.io/${{ github.repository }}:.*|image: ghcr.io/${{ github.repository }}:${{ github.sha }}|g" deployment.yaml
+          else
+            # Linux and Git Bash on Windows version
+            sed -i "s|image: ghcr.io/${{ github.repository }}:.*|image: ghcr.io/${{ github.repository }}:${{ github.sha }}|g" deployment.yaml
+          fi
           
           # Commit and push changes
           git config --global user.name "GitHub Actions"

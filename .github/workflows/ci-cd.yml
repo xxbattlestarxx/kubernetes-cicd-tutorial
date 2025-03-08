@@ -32,6 +32,28 @@ jobs:
             ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{ github.sha }}
 
+      - name: Debug GitOps authentication
+        shell: bash
+        env:
+          GIT_TOKEN: ${{ secrets.GITOPS_PAT }}
+        run: |
+          # Print first few characters of token to verify it's set (safe to show just a hint)
+          echo "Token starts with: ${GIT_TOKEN:0:4}..."
+          
+          # Try cloning with basic command
+          git clone https://${GIT_TOKEN}@github.com/rslim087a/grade-api-gitops.git gitops
+          
+          # Create a test file
+          cd gitops
+          echo "Test from GitHub Actions" > test-actions.txt
+          
+          # Commit and push
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add test-actions.txt
+          git commit -m "Test authentication from GitHub Actions"
+          git push
+
       - name: Update GitOps repository
         shell: bash
         run: |

@@ -53,6 +53,18 @@ spec:
       selfHeal: true
 ```
 
+## Creating Image Pull Secrets
+
+To allow Kubernetes to pull images from GitHub Container Registry:
+
+```yaml
+kubectl create secret docker-registry ghcr-secret \\
+  --docker-server=ghcr.io \\
+  --docker-username=YOUR_USERNAME \\
+  --docker-password=YOUR_PAT \\
+  --namespace=default
+```
+
 ## Kubernetes Training
 
 If you found this guide helpful, check out our [Kubernetes Training course](https://kubernetestraining.io/)

@@ -65,6 +65,6 @@ kubectl create secret docker-registry ghcr-secret \\
   --namespace=default
 ```
 
-## Kubernetes Training
+### Become a Cloud and DevOps Engineer
 
-If you found this guide helpful, check out our [Kubernetes Training course](https://kubernetestraining.io/)
+Visit https://rayanslim.com

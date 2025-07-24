@@ -27,7 +27,7 @@ jobs:
             ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{ github.sha }}
       - name: Update GitOps repository
-        shell: D:\Program Files\Git\bin\bash.exe -c "{0}" # Pas dit pad aan als Git Bash elders staat
+        shell: D:\Git\bin\bash.exe -c "{0}" # Pas dit pad aan als Git Bash elders staat
         env:
           GIT_TOKEN: ${{ secrets.GITOPS_PAT }}
         run: |

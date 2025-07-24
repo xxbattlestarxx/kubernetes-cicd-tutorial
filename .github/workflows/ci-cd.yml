@@ -10,7 +10,7 @@ jobs:
     steps:
 
       - name: Update GitOps repository
-        shell: "D:\\Git\\bin\\bash.exe -c \"{0}\""
+        shell: bash
         env:
           GIT_TOKEN: ${{ secrets.GITOPS_PAT }}
         run: |

@@ -26,7 +26,6 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository }}:latest
             ghcr.io/${{ github.repository }}:${{ github.sha }}
-    runs-on: windows-latest 
       - name: Update GitOps repository
         shell: bash
         env:

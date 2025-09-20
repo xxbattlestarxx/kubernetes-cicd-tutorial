@@ -19,9 +19,9 @@ except FileNotFoundError:
     config = {} # Lege config als bestand niet gevonden is
 
 # Configuratieparameters
-CATEGORY_ID = config.get("category_id", None)
-POLL_INTERVAL_MINUTES = config.get("poll_interval", 5) # Standaard 5 minuten
-BRANDS_TO_MONITOR = config.get("brands_to_monitor", []) # Lijst van merken om naar te zoeken
+CATEGORY_ID = os.getenv('category_id')
+POLL_INTERVAL_MINUTES = os.getenv('poll_interval')
+BRANDS_TO_MONITOR = os.getenv('brands_to_monitor')
 
 API_KEY = os.getenv('gemini_api_key') 
 TELEGRAM_BOT_TOKEN_BRAND_MATCH = os.getenv('telegram_bot_token_koopje')

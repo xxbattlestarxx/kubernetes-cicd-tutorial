@@ -20,8 +20,11 @@ except FileNotFoundError:
 
 # Configuratieparameters
 CATEGORY_ID = os.getenv('category_id')
-POLL_INTERVAL_MINUTES = os.getenv('poll_interval')
-BRANDS_TO_MONITOR = os.getenv('BRANDS_TO_MONITOR')  # Let op de hoofdletters
+POLL_INTERVAL_MINUTES_STR = os.getenv('poll_interval', '5') # Haal op als string, met '5' als default
+POLL_INTERVAL_MINUTES = int(POLL_INTERVAL_MINUTES_STR) # Converteer naar een integer
+
+BRANDS_TO_MONITOR_STRING = os.getenv('BRANDS_TO_MONITOR', '')
+BRANDS_TO_MONITOR = [brand.strip() for brand in BRANDS_TO_MONITOR_STRING.split(',')]
 
 API_KEY = os.getenv('GEMINI_API_KEY')  # Let op de hoofdletters
 TELEGRAM_BOT_TOKEN_BRAND_MATCH = os.getenv('TELEGRAM_BOT_TOKEN_KOOPJE')  # Let op de hoofdletters

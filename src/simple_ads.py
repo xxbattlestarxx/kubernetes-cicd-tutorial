@@ -26,7 +26,7 @@ BRANDS_TO_MONITOR = os.getenv('BRANDS_TO_MONITOR')  # Let op de hoofdletters
 API_KEY = os.getenv('GEMINI_API_KEY')  # Let op de hoofdletters
 TELEGRAM_BOT_TOKEN_BRAND_MATCH = os.getenv('TELEGRAM_BOT_TOKEN_KOOPJE')  # Let op de hoofdletters
 TELEGRAM_CHAT_ID_BRAND_MATCH = os.getenv('TELEGRAM_CHAT_ID_KOOPJE')  # Let op de hoofdletters
-
+print(f"API Key: {API_KEY}") # Voeg deze print-statement toe om te debuggen
 
 # --- Database pad ---
 # De database bevindt zich in dezelfde map als dit script (/data/)

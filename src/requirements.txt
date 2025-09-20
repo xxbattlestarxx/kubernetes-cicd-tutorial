@@ -1,0 +1,4 @@
+requests
+pyyaml
+marktplaats # Of hoe je Marktplaats API heet
+rapidfuzz

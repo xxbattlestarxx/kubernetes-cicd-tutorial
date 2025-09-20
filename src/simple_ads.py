@@ -338,10 +338,10 @@ if __name__ == "__main__":
 
         # 1. Scrape de laatste advertenties en sla ze op in de 'advertisements' tabel.
         scrape_and_process_ads()
-
+        print(f"\n--- Fase 1 : {datetime.now()} ---")
         # 2. Haal alle advertenties op die nog geen 'brand' hebben gekregen voor Gemini.
         unprocessed_ads = get_unprocessed_ads_for_brand_identification()
-        
+         print(f"\n--- Fase 2 : {datetime.now()} ---")
         if not unprocessed_ads:
             print("\nGeen nieuwe advertenties gevonden om te verwerken via Gemini API voor merkanalyse.")
         else:
@@ -378,10 +378,11 @@ if __name__ == "__main__":
                     print(f"  Advertentie (link: {ad_link[:50]}...): Gemini kon geen duidelijk merk identificeren.")
                     update_advertisement_brand(ad_link, "Onbekend") # Markeer als verwerkt maar onbekend
 
+         print(f"\n--- Fase 3 : {datetime.now()} ---")
         # 4. Vergelijk geïdentificeerde merken met de te monitoren merken en verstuur notificaties
         print("\nVergelijken van geïdentificeerde merken met de geconfigureerde merkenlijst…")
         ads_for_comparison = get_ads_for_brand_comparison() 
-
+         print(f"\n--- Fase 4 : {datetime.now()} ---")
         if not ads_for_comparison:
             print("Geen nieuwe advertenties gevonden met geïdentificeerde merken om te vergelijken die nog niet gemeld zijn.")
         else:

@@ -21,11 +21,11 @@ except FileNotFoundError:
 # Configuratieparameters
 CATEGORY_ID = os.getenv('category_id')
 POLL_INTERVAL_MINUTES = os.getenv('poll_interval')
-BRANDS_TO_MONITOR = os.getenv('brands_to_monitor')
+BRANDS_TO_MONITOR = os.getenv('BRANDS_TO_MONITOR')  # Let op de hoofdletters
 
-API_KEY = os.getenv('gemini_api_key') 
-TELEGRAM_BOT_TOKEN_BRAND_MATCH = os.getenv('telegram_bot_token_koopje')
-TELEGRAM_CHAT_ID_BRAND_MATCH = os.getenv('telegram_chat_id_koopje')  
+API_KEY = os.getenv('GEMINI_API_KEY')  # Let op de hoofdletters
+TELEGRAM_BOT_TOKEN_BRAND_MATCH = os.getenv('TELEGRAM_BOT_TOKEN_KOOPJE')  # Let op de hoofdletters
+TELEGRAM_CHAT_ID_BRAND_MATCH = os.getenv('TELEGRAM_CHAT_ID_KOOPJE')  # Let op de hoofdletters
 
 
 # --- Database pad ---

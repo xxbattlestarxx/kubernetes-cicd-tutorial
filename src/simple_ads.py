@@ -6,7 +6,7 @@ import json
 import requests
 from datetime import datetime, timedelta
 from marktplaats import SearchQuery, SortBy, SortOrder, category_from_name # Let op: Category class wordt hier niet direct geïmporteerd
-import time # Importeer time voor de sleep functie
+import time # Importeer time voor de sleep functie 
 
 # --- Laad configuratie ---
 # Het config-bestand bevindt zich in de bovenliggende map 'Config'

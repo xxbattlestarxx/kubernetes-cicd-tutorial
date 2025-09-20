@@ -25,6 +25,8 @@ POLL_INTERVAL_MINUTES = int(POLL_INTERVAL_MINUTES_STR) # Converteer naar een int
 
 BRANDS_TO_MONITOR_STRING = os.getenv('BRANDS_TO_MONITOR', '')
 BRANDS_TO_MONITOR = [brand.strip() for brand in BRANDS_TO_MONITOR_STRING.split(',')]
+print(f"API Key: {BRANDS_TO_MONITOR}") # Voeg deze print-statement toe om te debuggen
+
 
 API_KEY = os.getenv('GEMINI_API_KEY')  # Let op de hoofdletters
 TELEGRAM_BOT_TOKEN_BRAND_MATCH = os.getenv('TELEGRAM_BOT_TOKEN_KOOPJE')  # Let op de hoofdletters
